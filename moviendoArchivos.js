@@ -61,13 +61,6 @@ function crear(){
 		/*Si usamos "getDirectory" obtenemos un archivo*/
 		espacio_asignado.getDirectory(directorios,{create:true, exclusive:false},mostrarSiExito,errores);
 	}
-		
-		
-		
-		
-		
-	
-	
 }
 function mostrarSiExito(){
 	document.getElementById("entrada").value="";
