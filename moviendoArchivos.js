@@ -52,13 +52,13 @@ function crear(){
 	if(archivo!==""){
 		archivo=ruta + archivo;
 		
-		/*Si usamos "getFile" obtenemos un directorio*/		
+		/*Si usamos "getFile" obtenemos un archivo*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);
 	}
 	 if(directorios!==""){
 		directorios=ruta + directorios;
 		
-		/*Si usamos "getDirectory" obtenemos un archivo*/
+		/*Si usamos "getDirectory" obtenemos un directorio*/
 		espacio_asignado.getDirectory(directorios,{create:true, exclusive:false},mostrarSiExito,errores);
 	}
 }
