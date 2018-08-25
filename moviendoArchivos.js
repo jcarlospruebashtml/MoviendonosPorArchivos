@@ -6,7 +6,7 @@
 
   
 "use strict";
-var zonadatos,boton,espacio_asignado,ruta,botonMover;
+var zonadatos,boton,espacio_asignado,ruta,botonMover,botonBorrar;
 
 function inicio(){
 	zonadatos=document.getElementById("zonadatos");/*ERROR REFORMADO, "document.getElementById" por "addEventListener", descubierto gracias a la consola del navegador chrome*/
@@ -15,6 +15,9 @@ function inicio(){
 	
 	botonMover=document.getElementById("mover");
 	botonMover.addEventListener("click",modificar,false);
+	
+	botonBorrar=document.getElementById("borrado");
+	botonBorrar.addEventListener("click",borrarArchivo,false);
 	
 	
 	
@@ -53,7 +56,7 @@ function crear(){
 		archivo=ruta + archivo;
 		
 		/*Si usamos "getFile" obtenemos un directorio*/		
-		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);
+		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);		
 	}
 	 if(directorios!==""){
 		directorios=ruta + directorios;
@@ -125,6 +128,36 @@ function modificar(){
 			},errores);
 		},errores);
 	},errores);
+}
+function borrarArchivo(){
+	
+	/*El metodo "remove" tiene 2 parametros:
+		-¡¡(exito,error)!!*/
+	
+	var borrarFile=document.getElementById("borrarArchivo").value;	
+	var borrarDirectory=document.getElementById("borrarDirectorio").value;
+	
+		borrarFile=ruta + borrarFile;
+		borrarDirectory=ruta + borrarDirectory;
+	
+	if(borrarFile){
+		
+			espacio_asignado.getFile(borrarFile, null, function(archivo){
+				archivo.remove(function(){
+					document.getElementById("borrarArchivo").value="";
+					mostrarSiExito();
+				},errores);
+			},errores);	
+	}
+	else if(borrarDirectory){
+
+			espacio_asignado.getDirectory(borrarDirectory, null, function(directorio){
+				directorio.removeRecursively(function(){
+					document.getElementById("borrarDirectorio").value="";
+					mostrarSiExito();
+				},errores);
+			},errores);
+	}
 }
 
 function errores(evento){
