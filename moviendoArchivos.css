@@ -5,10 +5,13 @@ body{
 	background-color:lightcoral;
 }
 #informacion{
-	top: -50px;
+	top: -150px;
 	left: 300px;
 	clear: both;
 	position: relative;
+}
+#zonaformulario .but:hover{
+	transform: scale(1.5);
 }
 
 #contenedor{
@@ -20,8 +23,12 @@ body{
 	top: 50px;
 	left: 100px;
 	right: 100px;
+	bottom: 10px;
 	background-color: aquamarine;
+}#contenedor h1{
+	text-align: center;
 }
+
 
 #zonaformulario{
 	float:left;

@@ -55,7 +55,6 @@ function crear(){
 	if(archivo!==""){
 		archivo=ruta + archivo;
 		
-
 		/*Si usamos "getFile" obtenemos un directorio*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);		
 
@@ -69,6 +68,7 @@ function crear(){
 		/*Si usamos "getDirectory" obtenemos un directorio*/
 		espacio_asignado.getDirectory(directorios,{create:true, exclusive:false},mostrarSiExito,errores);
 	}
+		boton.focus();	
 }
 function mostrarSiExito(){
 	document.getElementById("entrada").value="";
