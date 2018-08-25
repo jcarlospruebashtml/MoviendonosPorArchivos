@@ -138,6 +138,9 @@ function borrarArchivo(){
 	
 	/*El metodo "remove" tiene 2 parametros:
 		-¡¡(exito,error)!!*/
+	/*El metodo "removeRecursively" tiene los 
+	mismos parametros:
+		-¡¡(exito,error)!!*/
 	
 	var borrarFile=document.getElementById("borrarArchivo").value;	
 	var borrarDirectory=document.getElementById("borrarDirectorio").value;
