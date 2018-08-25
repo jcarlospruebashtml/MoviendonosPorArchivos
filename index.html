@@ -15,30 +15,32 @@
     
     	<form name="formulario">
     
-    		<p>Nombre archivo:<br><input type="text" name="entrada" id="entrada" required></p>
+    		<p>Nombre archivo:<br><input type="text" name="entrada" id="entrada"></p>
+    		<p>Nombre directorio:<br><input type="text" name="carpeta" id="carpeta"></p>
+    		<p>Archivo a modificar:<br><input type="text" name="mod" id="archivo_origen" autocomplete="on"></p>
+    		<p>Directorio destino:<br><input type="text" name="des" id="directorio_destino" autocomplete="on"></p>
             
-            <p><input type="button" name="boton" id="boton" value="Aceptar">&nbsp;
-			<input type="button" value="Volver" onClick="volver()"></p>
+            <p><input type="button" name="boton" id="boton" value="Introducir datos">&nbsp;
+			<input type="button" value="Atrás" onClick="volver()"></p>
+			<p><input type="button" value="Mover archivo" id="mover"></p>
     
 		</form>    
     </section>
+	<section id="zonadatos">
     
-    <section id="zonadatos">
-    
-    	No hay información
+    	No hay información		
         
      </section>
+	<section>
+	  <div id="informacion"><p>Para volver archivos al directorio ra&iacute;z:</p>
+			<p>Directorio donde se encuentra el archivo "/" archivo a mover</p>
+			<p>Ejemplo:</p>
+			<p>Instrumentos musicales/Fagot</p>
+		
+		</div>
+	</section>
 
 </div>
 </body>
 </html>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Documento sin título</title>
-</head>
 
-<body>
-</body>
-</html>

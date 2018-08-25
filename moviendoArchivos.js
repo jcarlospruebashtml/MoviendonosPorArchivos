@@ -1,18 +1,20 @@
  // JavaScript Document
 
-	/*!!!!!!!!!!!!!!!!!!!!!FUNCIONA TODO, PERO NO SE COMO METER ARCHIVOS EN LOS DISTINTOS DIRECTORIOS!!!!!!!!!!!!!!!!*/
 
 
 		/*PARA QUE ESTO FUNCIONE TENEMOS QUE HACERLO DESDE UN SERVIDOR REMOTO, O CAMBIAR LOS PERMISOS EN EL NAVEGADOR PARA QUE NOS PERMITA ACCEDER EN LOCAL*/
 
   
 "use strict";
-var zonadatos,boton,espacio_asignado,ruta;
+var zonadatos,boton,espacio_asignado,ruta,botonMover;
 
 function inicio(){
 	zonadatos=document.getElementById("zonadatos");/*ERROR REFORMADO, "document.getElementById" por "addEventListener", descubierto gracias a la consola del navegador chrome*/
 	boton=document.getElementById("boton");
 	boton.addEventListener("click",crear,false);
+	
+	botonMover=document.getElementById("mover");
+	botonMover.addEventListener("click",modificar,false);
 	
 	
 	
@@ -45,24 +47,31 @@ function crearsis(sistema){
 }
 function crear(){
 	var archivo=document.getElementById("entrada").value;
+	var directorios=document.getElementById("carpeta").value;
+	
 	if(archivo!==""){
 		archivo=ruta + archivo;
 		
-		/*Si usamos "getDirectory" obtenemos un directorio*/
-		/*Si usamos "getFile" obtenemos un archivo*/
-		
-		
-		
+		/*Si usamos "getFile" obtenemos un directorio*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);
-		//espacio_asignado.getDirectory(archivo,{create:true, exclusive:false},mostrarSiExito,errores);
-		
-		
-		
 	}
+	 if(directorios!==""){
+		directorios=ruta + directorios;
+		
+		/*Si usamos "getDirectory" obtenemos un archivo*/
+		espacio_asignado.getDirectory(directorios,{create:true, exclusive:false},mostrarSiExito,errores);
+	}
+		
+		
+		
+		
+		
+	
 	
 }
 function mostrarSiExito(){
 	document.getElementById("entrada").value="";
+	document.getElementById("carpeta").value="";
 	zonadatos.innerHTML="";
 	espacio_asignado.getDirectory(ruta, null, leerDirectorio,errores);
 	
@@ -107,6 +116,20 @@ function volver(){
 		directorioActual.getParent(function(directorioPadre){
 			ruta=directorioPadre.fullPath;
 			mostrarSiExito();
+		},errores);
+	},errores);
+}
+function modificar(){
+	var origen=document.getElementById("archivo_origen").value;
+	var destino=document.getElementById("directorio_destino").value;
+	
+	espacio_asignado.getFile(origen, null, function(archivo){
+		espacio_asignado.getDirectory(destino, null, function(directorio){
+			archivo.moveTo(directorio, null, function(){
+				document.getElementById("archivo_origen").value="";
+				document.getElementById("directorio_destino").value="";
+					mostrarSiExito();
+			},errores);
 		},errores);
 	},errores);
 }

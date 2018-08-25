@@ -1,27 +1,41 @@
 @charset "utf-8";
 /* CSS Document */
 
+body{
+	background-color:lightcoral;
+}
+#informacion{
+	top: -50px;
+	left: 300px;
+	clear: both;
+	position: relative;
+}
+
 #contenedor{
-	width:1200px;
-	position:relative;
+	width:1000px;
+	height: auto;
+	position:absolute;
 	margin:auto;
 	padding: 10px;
 	top: 50px;
 	left: 100px;
+	right: 100px;
+	background-color: aquamarine;
 }
 
 #zonaformulario{
 	float:left;
 	padding:30px;
-	border:2px solid #F00;
+	border:2px solid #000;
 }
 
 #zonadatos{
 	float:left;
 	width:500px;
+	height: auto;
 	margin-left:20px;
 	padding:20px;
-	border:2px dashed #0000FF;
+	border:2px solid #0000FF;
 }
 
 .directorio{
