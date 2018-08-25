@@ -55,13 +55,13 @@ function crear(){
 	if(archivo!==""){
 		archivo=ruta + archivo;
 		
-<<<<<<< HEAD
+
 		/*Si usamos "getFile" obtenemos un directorio*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);		
-=======
+
 		/*Si usamos "getFile" obtenemos un archivo*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);
->>>>>>> 3d9e363ebb8322121af1b02df0ce918855b3f0e1
+
 	}
 	 if(directorios!==""){
 		directorios=ruta + directorios;
