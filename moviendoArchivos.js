@@ -171,6 +171,12 @@ function borrarArchivo(){
 function errores(evento){
 	/*Cuando se produce un error se lanza tambien un objeto que hay que capturar al que por convencion llamamos "e" o "evento";*/
 	alert("Lo sentimos, la acción no se ha realizado correctamente. 'Código de error:'" + evento.code);
+	document.getElementById("borrarDirectorio").value="";
+	document.getElementById("borrarArchivo").value="";
+	document.getElementById("archivo_origen").value="";
+	document.getElementById("directorio_destino").value="";
+	document.getElementById("entrada").value="";
+	document.getElementById("carpeta").value="";
 }
 
 
