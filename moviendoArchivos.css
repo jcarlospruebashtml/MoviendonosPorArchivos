@@ -23,9 +23,9 @@ body{
 	top: 50px;
 	left: 100px;
 	right: 100px;
-	bottom: 10px;
 	background-color: aquamarine;
-}#contenedor h1{
+}
+#contenedor h1{
 	text-align: center;
 }
 
