@@ -164,7 +164,7 @@ function borrarArchivo(){
 function escribir_archivo(){
 	var nombre=document.getElementById("entrada").value;
 	
-		espacio_asignado.getFile(nombre, null, function(parametro){
+		espacio_asignado.getFile(nombre, {create:true,exclusive:false}, function(parametro){
 			parametro.createWriter(function(fileWriter){
 				var text=document.getElementById("texto").value;
 					fileWriter.onwriteend=siExito();
