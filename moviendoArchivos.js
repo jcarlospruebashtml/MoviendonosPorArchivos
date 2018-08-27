@@ -1,7 +1,7 @@
  // JavaScript Document
   
 "use strict";
-var zonadatos,boton,espacio_asignado,ruta,botonMover,botonBorrar,botonEscribir;
+var zonadatos,boton,espacio_asignado,ruta,botonMover,botonBorrar;
 
 function inicio(){
 	zonadatos=document.getElementById("zonadatos");
@@ -50,7 +50,7 @@ function crear(){
 	if(archivo!==""){
 		archivo=ruta + archivo;
 		
-		/*Si usamos "getFile" obtenemos un directorio*/		
+		/*Si usamos "getFile" obtenemos un archivo*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);		
 
 	}
