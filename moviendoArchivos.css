@@ -13,6 +13,9 @@ body{
 #zonaformulario .but:hover{
 	transform: scale(1.5);
 }
+#zonaformulario .but{
+	background:#7CB8DF;
+}
 
 #contenedor{
 	width:1000px;

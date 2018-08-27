@@ -16,17 +16,26 @@
     
     	<form name="formulario">
     
-    		<p>Archivo a introducir:<br><input type="text" name="entrada" id="entrada" autocomplete></p>
-    		<p>Directorio a introducir:<br><input type="text" name="carpeta" id="carpeta" autocomplete></p>
+    		<p>Archivo:<br><input type="text" name="entrada" id="entrada" autocomplete></p>			
+    		<p>Directorio:<br><input type="text" name="carpeta" id="carpeta" autocomplete></p>			
+			 <p><input type="button" class="but" name="boton" id="boton" value="Introducir datos">&nbsp;
+			<input type="button" class="but" value="Volver" onClick="volver()"></p>
+			
+			<p>Texto:<br><textarea name="texto" id="texto"></textarea></p>
+			<p><input type="button" class="but" value="Introducir texto" id="introducirTexto"></p>
+			
     		<p>Archivo a mover:<br><input type="text" name="mod" id="archivo_origen" autocomplete></p>
     		<p>Directorio destino:<br><input type="text" name="des" id="directorio_destino" autocomplete></p>
+			
+			<p><input type="button" class="but" value="Mover archivo" id="mover">&nbsp;&nbsp;
+			<input type="button" class="but" value="Borrar" id="borrado"></p>
+			
     		<p>Borrar archivo:<br><input type="text" name="borrarArchivo" id="borrarArchivo" autocomplete></p>
     		<p>Borrar directorio:<br><input type="text" name="borrarDirectorio" id="borrarDirectorio" autocomplete></p>
             
-            <p><input type="button" class="but" name="boton" id="boton" value="Introducir datos">&nbsp;
-			<input type="button" class="but" value="Atrás" onClick="volver()"></p>
-			<p><input type="button" class="but" value="Mover archivo" id="mover">&nbsp;&nbsp;
-			<input type="button" class="but" value="Borrar" id="borrado"></p>
+           
+			
+			
     
 		</form>    
     </section>

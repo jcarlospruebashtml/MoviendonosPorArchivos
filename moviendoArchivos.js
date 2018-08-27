@@ -1,7 +1,7 @@
  // JavaScript Document
   
 "use strict";
-var zonadatos,boton,espacio_asignado,ruta,botonMover,botonBorrar;
+var zonadatos,boton,espacio_asignado,ruta,botonMover,botonBorrar,botonEscribir;
 
 function inicio(){
 	zonadatos=document.getElementById("zonadatos");
@@ -14,6 +14,8 @@ function inicio(){
 	botonBorrar=document.getElementById("borrado");
 	botonBorrar.addEventListener("click",borrarArchivo,false);
 	
+	botonEscribir=document.getElementById("introducirTexto");
+	botonEscribir.addEventListener("click",escribir_archivo, false);
 	
 	
 	/*PRIMER PARAMETRO ES EL ESPACIO QUE VA A OCUPAR EL SISTEMA DE ARCHIVOS, MEDIDO EN BITES, LO QUEREMOS EN MEGAS, POR ESO PONEMOS 1024 AL CUADRADO.
@@ -158,6 +160,28 @@ function borrarArchivo(){
 				},errores);
 			},errores);
 	}
+}
+function escribir_archivo(){
+	var nombre=document.getElementById("entrada").value;
+	
+		espacio_asignado.getFile(nombre, null, function(parametro){
+			parametro.createWriter(function(fileWriter){
+				var text=document.getElementById("texto").value;
+					fileWriter.onwriteend=siExito();
+				var objeto_blob=new Blob([text], {type:"text/html"});
+					fileWriter.write(objeto_blob);
+			},errores);
+		},errores);
+	/*El metodo "createWriter" tiene 2 parametros:
+		-(exito,errror);*/
+	/*El constructor "new Blob" tiene 2 parametros:
+		-(El array  que escribimos en el "textArea" y
+		el tipo de informacion que le estamos pasando )*/
+}
+function siExito(){
+	document.getElementById("entrada").value="";	
+	document.getElementById("texto").value="";	
+		zonadatos.innerHTML="Datos introducidos con éxito!!";
 }
 
 function errores(evento){
