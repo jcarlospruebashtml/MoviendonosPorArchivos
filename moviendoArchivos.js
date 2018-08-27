@@ -1,15 +1,10 @@
  // JavaScript Document
-
-
-
-		/*PARA QUE ESTO FUNCIONE TENEMOS QUE HACERLO DESDE UN SERVIDOR REMOTO, O CAMBIAR LOS PERMISOS EN EL NAVEGADOR PARA QUE NOS PERMITA ACCEDER EN LOCAL*/
-
   
 "use strict";
 var zonadatos,boton,espacio_asignado,ruta,botonMover,botonBorrar;
 
 function inicio(){
-	zonadatos=document.getElementById("zonadatos");/*ERROR REFORMADO, "document.getElementById" por "addEventListener", descubierto gracias a la consola del navegador chrome*/
+	zonadatos=document.getElementById("zonadatos");
 	boton=document.getElementById("boton");
 	boton.addEventListener("click",crear,false);
 	
@@ -58,9 +53,6 @@ function crear(){
 		/*Si usamos "getFile" obtenemos un directorio*/		
 		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);		
 
-		/*Si usamos "getFile" obtenemos un archivo*/		
-		espacio_asignado.getFile(archivo,{create:true, exclusive:false},mostrarSiExito,errores);
-
 	}
 	 if(directorios!==""){
 		directorios=ruta + directorios;
@@ -68,7 +60,7 @@ function crear(){
 		/*Si usamos "getDirectory" obtenemos un directorio*/
 		espacio_asignado.getDirectory(directorios,{create:true, exclusive:false},mostrarSiExito,errores);
 	}
-		boton.focus();	
+		
 }
 function mostrarSiExito(){
 	document.getElementById("entrada").value="";
